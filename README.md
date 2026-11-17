@@ -3,7 +3,7 @@
 Site Dedicated to The Jacker
 
 ## Links
-#### [Sounding](Media/sounding/sounding.jpg)
+#### [Sounding](https://thejacker.com/sounding)
 welopox you're muted 
 <!-- Links -->
 [Thejacker.com]: https://Thejacker.com/
