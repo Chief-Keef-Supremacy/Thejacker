@@ -33,5 +33,18 @@
             background-size: 100% 100%;
         }
     </style>
+    <script>
+        var SCREENSHOT_CHANCE = 0.2;
+        var SCREENSHOTS = [
+            'Media/screenshot1.png',
+            'Media/screenshot2.png',
+            'Media/screenshot3.png'
+        ];
+
+        if (Math.random() < SCREENSHOT_CHANCE) {
+            var pick = SCREENSHOTS[Math.floor(Math.random() * SCREENSHOTS.length)];
+            document.body.style.backgroundImage = "url('" + pick + "')";
+        }
+    </script>
 </body>
 </html>
