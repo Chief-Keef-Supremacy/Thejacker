@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- https://github.com/Chief-Keef-Supremacy/Thejacker -->
+<html lang="en">
+  <head>
+    <!-- Primary Meta Tags -->
+      <link rel="icon" type="image/png" href="Media/icon.png">
+      <title>Viper</title>
+      <meta name="title" content="Viper">
+      <meta name="description" content="">
+      <meta name="theme-color" content="#000000">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+    <!-- Open Graph -->
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://thejacker.com/viper">
+      <meta property="og:title" content="Viper">
+      <meta property="og:description" content="">
+    <!-- Twitter -->
+      <meta property="twitter:card" content="summary_large_image">
+      <meta property="twitter:url" content="http://thejacker.com/viper">
+      <meta property="twitter:title" content="Viper">
+      <meta property="twitter:description" content="">
+</head>
+<body>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            background-color: #000;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        #random-image {
+            display: block;
+            max-width: 90vw;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+        }
+        #random-image.loaded {
+            opacity: 1;
+        }
+    </style>
+
+    <img id="random-image" alt="">
+
+    <script>
+        fetch('Media/manifest.json')
+          .then(function (r) {
+              if (!r.ok) throw new Error('manifest HTTP ' + r.status);
+              return r.json();
+          })
+          .then(function (files) {
+              if (!Array.isArray(files) || files.length === 0) return;
+              var pick = files[Math.floor(Math.random() * files.length)];
+
+              var img = document.getElementById('random-image');
+              img.onload = function () {
+                  img.classList.add('loaded'); 
+              };
+              img.onerror = function () {
+                  console.error('Failed to load random image:', pick);
+              };
+              img.src = pick;
+          })
+          .catch(function (err) {
+              console.error('Could not load Media/manifest.json:', err);
+          });
+    </script>
+</body>
+</html>
