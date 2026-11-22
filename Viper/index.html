@@ -50,7 +50,7 @@
     <img id="random-image" alt="">
 
     <script>
-        fetch('Media/manifest.json')
+        fetch('../Media/Viper/manifest.json')
           .then(function (r) {
               if (!r.ok) throw new Error('manifest HTTP ' + r.status);
               return r.json();
